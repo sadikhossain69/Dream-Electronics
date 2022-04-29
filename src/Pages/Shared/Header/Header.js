@@ -20,7 +20,7 @@ const Header = () => {
                         <Link className='navbar-button me-5 d-block mb-1' to='/event' >Event</Link>
                         <Link className='navbar-button me-5 d-block mb-1' to='/blog' >Blog</Link>
                         <button className='btn btn-primary' >
-                            <Link className='text-white text-decoration-none' to='/register' >Register</Link>
+                            <Link className='text-white text-decoration-none' to='/login' >Login</Link>
                         </button>
                     </div>
                 </div>
