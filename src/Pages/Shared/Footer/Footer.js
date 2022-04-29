@@ -1,17 +1,23 @@
 import './Footer.css'
 import React from 'react';
+import { BsFacebook, BsGoogle, BsInstagram, BsLinkedin, BsTwitter } from 'react-icons/bs'
 
 const Footer = () => {
     return (
         <footer style={{ height: '150px' }} className='bg-dark text-white '>
             <div className='d-flex justify-content-center align-items-center pt-5'>
                 <div>
-                    <h3>This is Footer</h3>
+                    <h6>
+                    Copyright © 2022 Dream Electronics Team
+                    </h6>
                 </div>
             </div>
             <div className="d-flex justify-content-center">
-                <p>hello</p>
-                <p>hello</p>
+                <span className='social-button'><BsFacebook /></span>
+                <span className='social-button'><BsGoogle /></span>
+                <span className='social-button'><BsInstagram /></span>
+                <span className='social-button'><BsLinkedin/></span>
+                <span className='social-button'><BsTwitter/></span>
             </div>
         </footer>
     );
