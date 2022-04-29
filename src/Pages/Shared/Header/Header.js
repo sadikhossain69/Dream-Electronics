@@ -19,8 +19,8 @@ const Header = () => {
                         <Link className='navbar-button me-5 d-block mb-1' to='/youhelped' >You Helped</Link>
                         <Link className='navbar-button me-5 d-block mb-1' to='/event' >Event</Link>
                         <Link className='navbar-button me-5 d-block mb-1' to='/blog' >Blog</Link>
-                        <button className='btn btn-primary' >
-                            <Link className='text-white text-decoration-none' to='/login' >Login</Link>
+                        <button className='login-button' >
+                            <Link className='login-btn text-decoration-none' to='/login' >Login</Link>
                         </button>
                     </div>
                 </div>
