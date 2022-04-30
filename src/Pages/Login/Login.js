@@ -22,7 +22,7 @@ const Login = () => {
                         <span className='mt-5 text-center mb-5 login-title' >Login</span>
                     </div>
                     <form onClick={handleSubmit} >
-                        <div className="mb-5">
+                        <div className="mb-5 mt-2">
                             <input type="email" className="form-control form-input" id="exampleInputEmail1" aria-describedby="emailHelp" autoFocus={false} name='email' placeholder='Email' />
                         </div>
                         <div className="mb-5">
