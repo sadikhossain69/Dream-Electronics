@@ -1,0 +1,18 @@
+.contact-header {
+    color: goldenrod;
+    border-bottom: 1px solid khaki;
+    font-size: 40px;
+}
+
+.contact-input {
+    width: 280px;
+    margin-top: 20px;
+    font-size: 30px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+}
+
+.send-button {
+    width: 150px;
+}
