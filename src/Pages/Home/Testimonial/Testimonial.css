@@ -1,0 +1,9 @@
+.testimonial-header {
+    font-size: 40px;
+    color: rgb(20, 79, 102);
+    border-bottom: 1px solid rgb(20, 79, 102);
+}
+
+.testimonial-text {
+    border-left: 1px solid gold;
+}
