@@ -8,6 +8,9 @@ const Login = () => {
 
     const handleSubmit = event => {
         event.preventDefault()
+        // const email = event.target.name.value
+        // const password = event.target.password.value
+        // console.log(email, password)
     }
 
     return (

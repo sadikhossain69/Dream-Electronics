@@ -3,11 +3,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { BsGoogle } from 'react-icons/bs'
 import register from '../../Images/Register/register.svg'
+import toast from 'react-hot-toast';
 
 const Register = () => {
 
+
+
     const handleSubmit = event => {
         event.preventDefault()
+        const email = event.target.email.value
+        const password = event.target.password.value
+        const confirmPassword = event.target.password2.value
+        if(password === confirmPassword) {
+            console.log(email, password)
+        }
+        else {
+            toast(`Password & Confirm Password Didn't Match!`)
+        }
     }
 
     return (
@@ -21,9 +33,9 @@ const Register = () => {
                     <div className='text-center'>
                         <span className='mt-5 text-center mb-5 login-title' >Register</span>
                     </div>
-                    <form onClick={handleSubmit} >
+                    <form onSubmit={handleSubmit} >
                         <div className="mb-5 mt-2">
-                            <input type="email" className="form-control form-input" id="exampleInputEmail1" aria-describedby="emailHelp" autoFocus={false} name='email' placeholder='Email' required />
+                            <input type="email" className="form-control form-input" id="exampleInputEmail1" aria-describedby="emailHelp" name='email' placeholder='Email'  />
                         </div>
                         <div className="mb-5">
                             <input type="password" className="form-control form-input" id="exampleInputPassword1" name='password' placeholder='Password' required />
