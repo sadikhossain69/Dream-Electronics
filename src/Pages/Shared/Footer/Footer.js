@@ -4,7 +4,7 @@ import { BsFacebook, BsGoogle, BsInstagram, BsLinkedin, BsTwitter } from 'react-
 
 const Footer = () => {
     return (
-        <footer style={{ height: '150px' }} className='bg-dark text-white '>
+        <footer style={{ height: '150px' }} className='bg-dark text-white mt-5'>
             <div className='d-flex justify-content-center align-items-center pt-5'>
                 <div>
                     <h6>
