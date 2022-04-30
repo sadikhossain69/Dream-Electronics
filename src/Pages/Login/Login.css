@@ -1,0 +1,14 @@
+.form-input {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    font-size: 25px;
+}
+
+.form-input:focus {
+    outline: none;
+}
+
+.submit-button {
+    font-size: 20px;
+}
