@@ -4,9 +4,21 @@ import { Link } from 'react-router-dom';
 import { BsGoogle } from 'react-icons/bs'
 import register from '../../Images/Register/register.svg'
 import toast from 'react-hot-toast';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 const Register = () => {
 
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth);
+
+    if (loading) {
+        return <p>Loading...</p>
+    }
 
 
     const handleSubmit = event => {
@@ -14,12 +26,32 @@ const Register = () => {
         const email = event.target.email.value
         const password = event.target.password.value
         const confirmPassword = event.target.password2.value
-        if(password === confirmPassword) {
-            console.log(email, password)
+
+        if (user) {
+            toast('Already Have A User')
         }
-        else {
+        if(password !== confirmPassword) {
             toast(`Password & Confirm Password Didn't Match!`)
         }
+        else {
+            createUserWithEmailAndPassword(email, password)
+            if (error) {
+                return toast(error.message)
+            }
+            toast('New User Created')
+        }
+
+        //     if(password === confirmPassword) {
+        //         createUserWithEmailAndPassword(email, password)
+                // if (error) {
+                //     return toast(error.message)
+                // }
+        //         toast('New User Created')
+        //     }
+        //     else {
+        //         toast(`Password & Confirm Password Didn't Match!`)
+        //     }
+
     }
 
     return (
@@ -35,7 +67,7 @@ const Register = () => {
                     </div>
                     <form onSubmit={handleSubmit} >
                         <div className="mb-5 mt-2">
-                            <input type="email" className="form-control form-input" id="exampleInputEmail1" aria-describedby="emailHelp" name='email' placeholder='Email'  />
+                            <input type="email" className="form-control form-input" id="exampleInputEmail1" aria-describedby="emailHelp" name='email' placeholder='Email' required />
                         </div>
                         <div className="mb-5">
                             <input type="password" className="form-control form-input" id="exampleInputPassword1" name='password' placeholder='Password' required />
