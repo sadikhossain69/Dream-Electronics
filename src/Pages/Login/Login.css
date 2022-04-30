@@ -12,3 +12,8 @@
 .submit-button {
     font-size: 20px;
 }
+
+.login-title {
+    font-size: 2rem;
+    border-bottom: 1px solid salmon;
+}

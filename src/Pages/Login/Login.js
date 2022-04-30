@@ -1,12 +1,25 @@
 import './Login.css'
 import React from 'react';
+import login from '../../Images/Login/login.svg'
 
 const Login = () => {
+
+    const handleSubmit = event => {
+        event.preventDefault()
+    }
+
     return (
-        <div style={{height: '90vh'}} className='container'>
+        <div className='container'>
             <div className="row mt-5">
+                
                 <div className="col-lg-6 col-md-12 col-sm-12 mt-5">
-                    <form>
+                    <img src={login} alt="" />
+                </div>
+                <div className="col-lg-6 col-md-12 col-sm-12 mt-5">
+                    <div className='text-center'> 
+                    <span className='mt-5 text-center mb-5 login-title' >Login</span>
+                    </div>
+                    <form onClick={handleSubmit} >
                         <div className="mb-5">
                             <input type="email" className="form-control form-input" id="exampleInputEmail1" aria-describedby="emailHelp" autoFocus='false' name='email' placeholder='Email'/>
                         </div>
