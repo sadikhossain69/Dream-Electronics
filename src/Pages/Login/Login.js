@@ -3,15 +3,50 @@ import React from 'react';
 import login from '../../Images/Login/login.svg'
 import { Link } from 'react-router-dom';
 import { BsGoogle } from 'react-icons/bs';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import Loading from '../Shared/Loading/Loading';
+import toast from 'react-hot-toast';
 
 const Login = () => {
 
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useSignInWithEmailAndPassword(auth);
+
+      if(loading) {
+          return <Loading/>
+      }
+      
+
     const handleSubmit = event => {
         event.preventDefault()
-        // const email = event.target.name.value
-        // const password = event.target.password.value
-        // console.log(email, password)
+        const email = event.target.email.value
+        const password = event.target.password.value
+        
+        if(!user) {
+            signInWithEmailAndPassword(email, password)
+            
+        }
+
+        if(error) {
+            toast(error.message)
+        }
+
+        
+        
     }
+    
+    
+    if(user) {
+        console.log(user);
+        toast('User Logged In')
+    }
+
+    
 
     return (
         <div className='container'>
@@ -24,7 +59,7 @@ const Login = () => {
                     <div className='text-center'>
                         <span className='mt-5 text-center mb-5 login-title' >Login</span>
                     </div>
-                    <form onClick={handleSubmit} >
+                    <form onSubmit={handleSubmit} >
                         <div className="mb-5 mt-2">
                             <input type="email" className="form-control form-input" id="exampleInputEmail1" aria-describedby="emailHelp" autoFocus={false} name='email' placeholder='Email' />
                         </div>
@@ -35,11 +70,11 @@ const Login = () => {
                         <p>Forget Password <span className='btn text-primary' >Reset Now</span> </p>
                         <input className='btn btn-primary submit-button' type="submit" value="Login" />
                     </form>
-                    <div style={{border: '1px solid rgb(126, 118, 118)'}} className='mt-2' >
+                    <div style={{ border: '1px solid rgb(126, 118, 118)' }} className='mt-2' >
 
                     </div>
                     <div className='btn btn-outline-success w-100 mt-2'>
-                        <h5> <BsGoogle/> Continue With Google</h5>
+                        <h5> <BsGoogle /> Continue With Google</h5>
                     </div>
                 </div>
             </div>
