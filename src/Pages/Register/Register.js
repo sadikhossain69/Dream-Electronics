@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { BsGoogle } from 'react-icons/bs'
 import register from '../../Images/Register/register.svg'
 import toast from 'react-hot-toast';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
 
@@ -17,8 +17,23 @@ const Register = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
 
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+
     if (loading) {
         return <Loading/>
+    }
+
+    if(googleLoading) {
+        return <Loading/>
+    }
+    
+    if(googleUser) {
+        console.log(googleUser);
+        toast('User Logged In')
+    }
+
+    if(googleError) {
+        toast(googleError.message)
     }
 
 
@@ -41,17 +56,6 @@ const Register = () => {
             }
             toast('New User Created')
         }
-
-        //     if(password === confirmPassword) {
-        //         createUserWithEmailAndPassword(email, password)
-                // if (error) {
-                //     return toast(error.message)
-                // }
-        //         toast('New User Created')
-        //     }
-        //     else {
-        //         toast(`Password & Confirm Password Didn't Match!`)
-        //     }
 
     }
 
@@ -82,7 +86,7 @@ const Register = () => {
                     <div style={{ border: '1px solid rgb(126, 118, 118)' }} className='mt-2' >
 
                     </div>
-                    <div className='btn btn-outline-success w-100 mt-2'>
+                    <div onClick={ () => signInWithGoogle() }  className='btn btn-outline-success w-100 mt-2'>
                         <h5> <BsGoogle /> Continue With Google</h5>
                     </div>
                 </div>
