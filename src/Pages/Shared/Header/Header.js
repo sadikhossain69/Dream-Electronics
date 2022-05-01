@@ -1,8 +1,14 @@
 import './Header.css'
 import React from 'react';
 import { Link } from 'react-router-dom';
+import auth from '../../../firebase.init';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { signOut } from 'firebase/auth';
 
 const Header = () => {
+
+    const [user, loading, error] = useAuthState(auth);
+
     return (
         <header>
             <nav className="navbar navbar-expand-lg navbar-light navbar-design">
@@ -21,9 +27,16 @@ const Header = () => {
                         <Link className='text-decoration-none text-dark navbar-button me-5 d-block mb-1' to='/youhelped' >You Helped</Link>
                         <Link className='text-decoration-none text-dark navbar-button me-5 d-block mb-1' to='/event' >Event</Link>
                         <Link className='text-decoration-none text-dark navbar-button me-5 d-block mb-1' to='/blog' >Blog</Link>
-                        <button className='login-button' >
-                            <Link className='login-btn text-decoration-none' to='/login' >Login</Link>
-                        </button>
+                        {
+                            user ?
+                                <button onClick={ () => signOut(auth) } className="login-button">
+                                    Sign Out
+                                </button>
+                                :
+                                <button className='login-button' >
+                                    <Link className='login-btn text-decoration-none' to='/login' >Login</Link>
+                                </button>
+                        }
                     </div>
                 </div>
             </nav>
