@@ -6,6 +6,7 @@ import register from '../../Images/Register/register.svg'
 import toast from 'react-hot-toast';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import Loading from '../Shared/Loading/Loading';
 
 const Register = () => {
 
@@ -14,10 +15,10 @@ const Register = () => {
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
 
     if (loading) {
-        return <p>Loading...</p>
+        return <Loading/>
     }
 
 
