@@ -9,6 +9,7 @@ const Header = () => {
 
     const [user, loading, error] = useAuthState(auth);
 
+
     return (
         <header>
             <nav className="navbar navbar-expand-lg navbar-light navbar-design">
