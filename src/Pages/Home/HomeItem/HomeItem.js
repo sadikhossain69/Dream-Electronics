@@ -3,14 +3,23 @@ import React from 'react';
 
 const HomeItem = ({ item }) => {
 
-    const { name } = item
+    const { name, image, description, price, quantity, supplier } = item
 
     return (
-        <div className="col-lg-4 col-md-12 col-sm-12">
-            <div className="card" style={{ width: '18rem' }}>
-                <img src="..." className="card-img-top" alt="..." />
+        <div className="col-lg-4 col-md-6 col-sm-12 mt-3">
+            <div className="card card-item" style={{ width: '18rem', height: '100%' }}>
+                <img src={image} className="card-img-top" alt="..." />
                 <div className="card-body">
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <h6>{name}</h6>
+                    <p className="card-text">{description}</p>
+                    <span className='fw-bold d-block'>Price: ${price}</span>
+                    <span className='fw-bold d-block my-1'>Quantity: {quantity}</span>
+                    <h6 className='fw-bold'>Supplier: {supplier}</h6>
+                    <div className="w-100">
+                        <button className="btn btn-outline-success w-100">
+                            See The Full Details
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

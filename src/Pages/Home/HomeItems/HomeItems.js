@@ -18,9 +18,9 @@ const HomeItems = () => {
     return (
         <>
             {/* <div className=""> */}
-                <div>
-                    <h2 className='text-center' >Inventory Items {items.length} </h2>
-                    <div className="row mx-auto">
+                <div className='text-center container'>
+                    <h2 className='' >Inventory Items {items.length} </h2>
+                    <div className="row ">
                         {
                             items.map(item => <HomeItem
                                 key={item._id}
