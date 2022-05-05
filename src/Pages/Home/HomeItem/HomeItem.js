@@ -17,7 +17,7 @@ const HomeItem = ({ item }) => {
                     <h6 className='fw-bold'>Supplier: {supplier}</h6>
                     <div className="w-100">
                         <button className="btn btn-outline-success w-100">
-                            See The Full Details
+                            Update
                         </button>
                     </div>
                 </div>

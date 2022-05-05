@@ -22,7 +22,7 @@ const HomeItems = () => {
                     <h2 className='' >Inventory Items {items.length} </h2>
                     <div className="row ">
                         {
-                            items.map(item => <HomeItem
+                            items.slice(0, 6).map(item => <HomeItem
                                 key={item._id}
                                 item={item}
                             />)
