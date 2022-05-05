@@ -7,7 +7,7 @@ const HomeItem = ({ item }) => {
 
     return (
         <div className="col-lg-4 col-md-6 col-sm-12 mt-3">
-            <div className="card card-item" style={{ width: '18rem', height: '100%' }}>
+            <div className="card card-item" style={{ width: '100%', height: '100%' }}>
                 <img src={image} className="card-img-top" alt="..." />
                 <div className="card-body">
                     <h6>{name}</h6>
