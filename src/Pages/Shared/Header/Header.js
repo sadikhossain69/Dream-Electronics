@@ -24,9 +24,21 @@ const Header = () => {
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         </ul>
                         <Link className='text-decoration-none text-dark navbar-button me-5 d-block mb-1' to='/' >Home</Link>
-                        <Link className='text-decoration-none text-dark navbar-button me-5 d-block mb-1' to='/addservice' >Add Service</Link>
-                        <Link className='text-decoration-none text-dark navbar-button me-5 d-block mb-1' to='/youhelped' >You Helped</Link>
-                        <Link className='text-decoration-none text-dark navbar-button me-5 d-block mb-1' to='/event' >Event</Link>
+                        {
+                            user ? 
+                            <Link className='text-decoration-none text-dark navbar-button me-5 d-block mb-1' to='/manageitems' >Manage Items</Link> 
+                            : ''
+                        }
+                        {
+                            user ?
+                            <Link className='text-decoration-none text-dark navbar-button me-5 d-block mb-1' to='/additems' >Add Items</Link>
+                            : ''
+                        }
+                        {
+                            user ?
+                            <Link className='text-decoration-none text-dark navbar-button me-5 d-block mb-1' to='/myitems' >My Items</Link>
+                            : ''
+                        }
                         <Link className='text-decoration-none text-dark navbar-button me-5 d-block mb-1' to='/blog' >Blog</Link>
                         {
                             user ?
