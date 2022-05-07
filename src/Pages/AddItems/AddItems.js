@@ -3,7 +3,8 @@ import React from 'react';
 import { Zoom } from 'react-reveal';
 import auth from '../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import Loading from '../Shared/Loading/Loading';
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const AddItems = () => {
 
@@ -11,14 +12,36 @@ const AddItems = () => {
 
 
     const handleAddNewItem = event => {
+        event.preventDefault()
         const email = user.email
         const name = event.target.name.value
         const supplierName = event.target.supplierName.value
         const photoUrl = event.target.photoUrl.value
         const price = event.target.price.value
         const quantity = event.target.quantity.value
-        event.preventDefault()
-        console.log(email, name, supplierName, photoUrl, price, quantity);
+        const description = event.target.textarea.value
+
+
+        const url = `http://localhost:5000/addedItems`
+
+        axios.post(url, {
+            email,
+            name,
+            supplierName,
+            photoUrl,
+            price,
+            quantity,
+            description
+        })
+        .then(res => {
+            console.log(res);
+            toast('New Item Added')
+        })
+        .catch(err => {
+            console.error(err);
+        })
+
+        event.target.reset()
     }
 
     return (
