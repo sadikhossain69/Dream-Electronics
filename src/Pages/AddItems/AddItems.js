@@ -19,7 +19,6 @@ const AddItems = () => {
         const photoUrl = event.target.photoUrl.value
         const price = event.target.price.value
         const quantity = event.target.quantity.value
-        const description = event.target.textarea.value
 
 
         const url = `http://localhost:5000/addedItems`
@@ -31,7 +30,6 @@ const AddItems = () => {
             photoUrl,
             price,
             quantity,
-            description
         })
         .then(res => {
             console.log(res);
@@ -55,7 +53,7 @@ const AddItems = () => {
                             <input name='name' className='inp mt-3' type="text" placeholder='Name' required />
                             <input name='supplierName' className='inp mt-3' type="text" placeholder='Supplier Name' required />
                             <input name='photoUrl' className='inp mt-3' type="text" placeholder='Photo Url' required />
-                            <textarea className='textarea my-3' name="textarea" id="" cols="50" rows="5" placeholder='Description' required ></textarea> <br />
+                             <br />
                             <input name='price' className='inp mt-3' type="number" placeholder='Price' required />
                             <input name='quantity' className='inp mt-3' type="number" placeholder='Quantity' required /> <br />
                             <input className='btn btn-primary mt-3' type="submit" value="Add New Item" />

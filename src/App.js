@@ -11,6 +11,7 @@ import { Toaster } from 'react-hot-toast';
 import ManageItems from './Pages/ManageItems/ManageItems';
 import Blog from './Pages/Blog/Blog';
 import AddItems from './Pages/AddItems/AddItems';
+import MyItems from './Pages/MyItems/MyItems';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path='/manageitems' element={<ManageItems/>} />
         <Route path='/blog' element={<Blog/>} />
         <Route path='/additems' element={<AddItems/>} />
+        <Route path='/myitems' element={<MyItems/>} />
         <Route path='*' element={<PageNotFound/>} />
       </Routes>
       <Footer/>
