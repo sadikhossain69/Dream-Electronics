@@ -9,6 +9,7 @@ import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 import { Toaster } from 'react-hot-toast';
 import ManageItems from './Pages/ManageItems/ManageItems';
+import Blog from './Pages/Blog/Blog';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Register/>} />
         <Route path='/manageitems' element={<ManageItems/>} />
+        <Route path='/blog' element={<Blog/>} />
         <Route path='*' element={<PageNotFound/>} />
       </Routes>
       <Footer/>

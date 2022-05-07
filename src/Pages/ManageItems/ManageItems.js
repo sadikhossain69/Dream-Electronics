@@ -17,7 +17,7 @@ const ManageItems = () => {
 
     return (
         <div className="container">
-            <div className='row mx-auto' >
+            <div className='row text-center' >
                 {
                     manageItems.map(manageItem => <ManageItem
                         key={manageItem._id}
