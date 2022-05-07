@@ -29,3 +29,9 @@ border: #006fff 0.2em solid;
         flex-direction: column;
     }
 }
+
+@media only screen and (max-width: 600px){
+	.my-item {
+        flex-direction: column;
+    }
+}
