@@ -1,19 +1,11 @@
 import './HomeItems.css'
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import HomeItem from '../HomeItem/HomeItem';
+import useHomeItem from '../../../hooks/useHomeItem';
 
 const HomeItems = () => {
 
-    const [items, setItems] = useState([])
+    const [items, setItems] = useHomeItem()
 
-    useEffect(() => {
-        const url = `http://localhost:5000/inventories`
-        axios.get(url)
-            .then(res => {
-                setItems(res.data);
-            })
-    }, [items])
 
     return (
         <>
