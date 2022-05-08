@@ -27,7 +27,7 @@ const UpdateHomeItem = () => {
                 <span className='text-center my-3'>
                 <Link to='/manageitems' className='btn btn-outline-primary' >Manage Item</Link>
                 </span>
-                <div className='col-lg-12 col-md-12 col-sm-12 update-card text-center'>
+                <div className='col-lg-12 col-md-12 col-sm-12 update-card text-center p-2'>
                     <img className='img-fluid' src={image} alt="" />
                     <h6>Name: {name}</h6>
                     <h6>Supplier Name: {supplier}</h6>
