@@ -29,10 +29,22 @@ function App() {
         } />
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Register/>} />
-        <Route path='/manageitems' element={<ManageItems/>} />
+        <Route path='/manageitems' element={
+          <RequireAuth>
+            <ManageItems/>
+          </RequireAuth>
+        } />
         <Route path='/blog' element={<Blog/>} />
-        <Route path='/additems' element={<AddItems/>} />
-        <Route path='/myitems' element={<MyItems/>} />
+        <Route path='/additems' element={
+          <RequireAuth>
+            <AddItems/>
+          </RequireAuth>
+        } />
+        <Route path='/myitems' element={
+          <RequireAuth>
+            <MyItems/>
+          </RequireAuth>
+        } />
         <Route path='*' element={<PageNotFound/>} />
       </Routes>
       <Footer/>
