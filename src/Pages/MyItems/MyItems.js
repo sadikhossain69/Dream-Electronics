@@ -25,14 +25,14 @@ const MyItems = () => {
             .then(res => {
                 setMyItems(res.data);
             })
-            .catch(err => {
-                console.log(err.message);
-                if(err.response.status === 401 || err.response.status === 403) {
-                    signOut(auth)
-                    navigate('/login')
-                    return toast('User Forbidden, Please Login Again')
-                }
-            })
+            // .catch(err => {
+            //     console.log(err.message);
+            //     if(err.response.status === 401 || err.response.status === 403) {
+            //         signOut(auth)
+            //         navigate('/login')
+            //         return toast('User Forbidden, Please Login Again')
+            //     }
+            // })
             
     }, [user])
 
