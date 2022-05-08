@@ -4,15 +4,11 @@ import axios from 'axios';
 import MyItem from '../MyItem/MyItem';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import { useNavigate } from 'react-router-dom';
-import { signOut } from 'firebase/auth';
-import toast from 'react-hot-toast';
 
 const MyItems = () => {
 
     const [myItems, setMyItems] = useState([])
     const [user] = useAuthState(auth)
-    const navigate = useNavigate()
 
     useEffect(() => {
         const email = user?.email
