@@ -13,7 +13,7 @@ const AddItems = () => {
 
     const handleAddNewItem = event => {
         event.preventDefault()
-        const email = user.email
+        const email = event.target.email.value
         const name = event.target.name.value
         const supplierName = event.target.supplierName.value
         const photoUrl = event.target.photoUrl.value

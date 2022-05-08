@@ -1,17 +1,19 @@
 import './Login.css'
 import React, { useState } from 'react';
 import login from '../../Images/Login/login.svg'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { BsGoogle } from 'react-icons/bs';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
 import toast from 'react-hot-toast';
 import { async } from '@firebase/util';
+import axios from 'axios';
 
 const Login = () => {
 
     const [email, setEmail] = useState('')
+    const navigate = useNavigate()
 
     const handleEmail = event => {
         setEmail(event.target.value);
@@ -40,42 +42,37 @@ const Login = () => {
 
     
 
-    if (emailLoading) {
+
+    if (googleLoading || emailLoading) {
         return <Loading />
     }
 
-    if (googleLoading) {
-        return <Loading />
-    }
-
-    if (googleUser) {
-        console.log(googleUser);
-        toast('User Logged In')
-    }
 
     if (googleError) {
         toast(googleError.message)
     }
 
-    const handleSubmit = event => {
+    const handleSubmit = async event => {
         event.preventDefault()
         const email = event.target.email.value
         const password = event.target.password.value
 
-        if (!emailUser) {
-            signInWithEmailAndPassword(email, password)
+        await signInWithEmailAndPassword(email, password)
 
-        }
+            const {data} = await axios.post('http://localhost:5000/login', {email})
+            localStorage.setItem('accessToken', data.accessToken)            
 
+            
         if (emailError) {
             toast(emailError.message)
         }
     }
 
 
-    if (emailUser) {
-        console.log(emailUser);
+    if (emailUser || googleUser) {
+        console.log(emailUser || googleUser);
         toast('User Logged In')
+        navigate('/home')
     }
 
 
