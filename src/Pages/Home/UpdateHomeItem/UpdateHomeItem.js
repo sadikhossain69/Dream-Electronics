@@ -9,9 +9,10 @@ const UpdateHomeItem = () => {
     const { id } = useParams()
     const [updateHomeItem, setUpdateHomeItem] = useState({})
     const [input, setInput] = useState(0)
+    const [updatedQuantity, setUpdatedQuantity] = useState(updateHomeItem?.quantity)
 
     useEffect(() => {
-        const url = `http://localhost:5000/inventories/${id}`
+        const url = `https://pacific-thicket-77981.herokuapp.com/inventories/${id}`
         axios.get(url)
             .then(res => {
                 setUpdateHomeItem(res.data);
@@ -19,7 +20,7 @@ const UpdateHomeItem = () => {
             .catch(err => {
                 console.error(err)
             })
-    }, [id])
+    }, [id, updatedQuantity])
 
     const handleDeliver = () => {
         const newQuantity = parseInt(updateHomeItem.quantity) - 1
@@ -29,22 +30,19 @@ const UpdateHomeItem = () => {
         else {
             const newUpdateQuantity = { newQuantity }
 
-            const url = `http://localhost:5000/inventories/${id}`
-            fetch(url, {
-                method: "PUT",
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(newUpdateQuantity)
-            })
-            .then(res => res.json())
-            .then(data => {
-                if(data.acknowledged === true) {
-                    setUpdateHomeItem(newUpdateQuantity)
-                    toast("Product Delivery Successfully")
-                }
-                console.log(data);
-            })
+            const url = `https://pacific-thicket-77981.herokuapp.com/inventories/${id}`
+            axios
+                .put(url, newUpdateQuantity)
+                .then(function (response) {
+                    if (response.data.modifiedCount === 1) {
+                        console.log(newUpdateQuantity.newQuantity);
+                        setUpdatedQuantity(newUpdateQuantity.newQuantity)
+                        toast.success('1 Item Delivered');
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
 
         }
     }
@@ -62,26 +60,22 @@ const UpdateHomeItem = () => {
         }
         else {
             const newUpdateQuantity = { newQuantity }
+            const url = `https://pacific-thicket-77981.herokuapp.com/inventories/${id}`
 
-            const url = `http://localhost:5000/inventories/${id}`
-            fetch(url, {
-                method: "PUT",
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(newUpdateQuantity)
-            })
-            .then(res => res.json())
-            .then(data => {
-                if(data.acknowledged === true) {
-                    setUpdateHomeItem(newUpdateQuantity.newQuantity)
-                    toast("Product Delivery Successfully")
-                }
-                console.log(data);
-            })
+            axios
+                .put(url, newUpdateQuantity)
+                .then(function (response) {
+                    if (response.data.modifiedCount === 1) {
+                        setUpdatedQuantity(newUpdateQuantity.newQuantity)
+                        toast.success('Added successful');
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
 
         }
-        
+
     }
 
     const { name, supplier, quantity, price, image } = updateHomeItem

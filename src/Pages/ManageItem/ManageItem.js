@@ -13,7 +13,7 @@ const ManageItem = ({ manageItem }) => {
         const proceed = window.confirm('Are You Sure?')
 
         if(proceed) {
-            const url = `http://localhost:5000/addedItems/${id}`
+            const url = `https://pacific-thicket-77981.herokuapp.com/addedItems/${id}`
             axios.delete(url)
             .then(res => {
                 console.log(res.data);

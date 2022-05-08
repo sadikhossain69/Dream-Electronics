@@ -21,7 +21,7 @@ const AddItems = () => {
         const quantity = event.target.quantity.value
 
 
-        const url = `http://localhost:5000/addedItems`
+        const url = `https://pacific-thicket-77981.herokuapp.com/addedItems`
 
         axios.post(url, {
             email,

@@ -8,7 +8,7 @@ const ManageItems = () => {
     const [manageItems, setManageItems] = useState([])
 
     useEffect(() => {
-        const url = `http://localhost:5000/inventories`
+        const url = `https://pacific-thicket-77981.herokuapp.com/inventories`
         axios.get(url)
             .then(res => {
                 setManageItems(res.data);

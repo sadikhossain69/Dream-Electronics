@@ -12,7 +12,7 @@ const MyItems = () => {
 
     useEffect(() => {
         const email = user?.email
-        const url = `http://localhost:5000/addedItems?email=${email}`
+        const url = `https://pacific-thicket-77981.herokuapp.com/addedItems?email=${email}`
         axios.get(url, {
             headers: {
                 authorization: `Bearer, ${localStorage.getItem('accessToken')}`

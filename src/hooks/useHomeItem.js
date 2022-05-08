@@ -5,7 +5,7 @@ const useHomeItem = () => {
     const [items, setItems] = useState([])
 
     useEffect(() => {
-        const url = `http://localhost:5000/inventories`
+        const url = `https://pacific-thicket-77981.herokuapp.com/inventories`
         axios.get(url)
             .then(res => {
                 setItems(res.data);
