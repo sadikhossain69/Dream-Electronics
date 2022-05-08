@@ -12,6 +12,7 @@ import ManageItems from './Pages/ManageItems/ManageItems';
 import Blog from './Pages/Blog/Blog';
 import AddItems from './Pages/AddItems/AddItems';
 import MyItems from './Pages/MyItems/MyItems';
+import UpdateHomeItem from './Pages/Home/UpdateHomeItem/UpdateHomeItem';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/home' element={<Home/>} />
+        <Route path='/inventories/:id' element={<UpdateHomeItem/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Register/>} />
         <Route path='/manageitems' element={<ManageItems/>} />

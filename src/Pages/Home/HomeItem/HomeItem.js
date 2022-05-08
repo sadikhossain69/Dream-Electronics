@@ -1,9 +1,17 @@
 import './HomeItem.css'
 import React from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const HomeItem = ({ item }) => {
 
-    const { name, image, description, price, quantity, supplier } = item
+    const { _id, name, image, description, price, quantity, supplier } = item
+    // console.log(_id);
+    const navigate = useNavigate()
+
+    const handleUpdateItem = id => {
+        navigate(`/inventories/${id}`)
+    }
 
     return (
         <div className="col-lg-4 col-md-6 col-sm-12 mt-3">
@@ -15,7 +23,7 @@ const HomeItem = ({ item }) => {
                     <span className='fw-bold d-block'>Price: ${price}</span>
                     <span className='fw-bold d-block my-1'>Quantity: {quantity}</span>
                     <h6 className='fw-bold'>Supplier: {supplier}</h6>
-                    <div className="w-100">
+                    <div onClick={ () => handleUpdateItem(_id) } className="w-100">
                         <button className="btn btn-outline-success w-100">
                             Update
                         </button>

@@ -10,7 +10,7 @@ const useHomeItem = () => {
             .then(res => {
                 setItems(res.data);
             })
-    }, [items])
+    }, [])
 
     return [ items, setItems ]
 
