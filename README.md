@@ -1,6 +1,6 @@
 ## Dream Electronics
 
-Live Website Link [Dream Electronics](https://github.com/facebook/create-react-app).
+Live Website Link [Dream Electronics](https://dream-electronics-5bda0.web.app/).
 
 ## Technology Used
 
@@ -10,7 +10,7 @@ Js\
 Bootstrap\
 React\
 React Router\
-Firebase\
+Firebase
 
 ### & Many More Things
 
